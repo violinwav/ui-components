@@ -1,0 +1,29 @@
+/* src/components/ui/ascii-image.css */
+.ascii-image {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  overflow: hidden; /* the pointer reveal never spills onto the content around (WCAG 1.4.13) */
+}
+/* the <img> keeps the box (and is the picture without JavaScript); the canvas lies over it */
+.ascii-image > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ascii-image > canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  pointer-events: none;
+}
+/* once the canvas draws, the <img> is the underlay: hidden, or at its own opacity and filter */
+.ascii-image[data-drawn] > img {
+  opacity: var(--ascii-image-under, 0);
+  filter: var(--ascii-image-filter, none);
+}
+.ascii-image[data-drawn]:not([data-underlay]) > img {
+  visibility: hidden;
+}

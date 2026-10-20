@@ -1,0 +1,155 @@
+:root {
+  color-scheme: dark;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+}
+body {
+  margin: 0;
+  background: #07080a;
+  color: #d8dde3;
+  font:
+    14px/1.4 system-ui,
+    sans-serif;
+}
+main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 24px;
+  padding: 24px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+@media (max-width: 800px) {
+  main {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+}
+.stage {
+  align-self: start;
+  position: sticky;
+  top: 24px;
+}
+.panel h1 {
+  font-size: 18px;
+  margin: 0 0 12px;
+}
+fieldset {
+  border: 1px solid #2a2f36;
+  border-radius: 8px;
+  margin: 0 0 12px;
+  display: grid;
+  gap: 8px;
+}
+legend {
+  padding: 0 4px;
+  color: #9aa3ad;
+}
+label {
+  display: grid;
+  gap: 2px;
+}
+label.check {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+input:not([type='checkbox']),
+select,
+button {
+  font: inherit;
+  min-height: 32px;
+  background: #12151a;
+  color: inherit;
+  border: 1px solid #343a42;
+  border-radius: 6px;
+}
+button {
+  cursor: pointer;
+  text-align: left;
+  padding: 4px 10px;
+}
+button:hover {
+  background: #1b2027;
+}
+:focus-visible {
+  outline: 2px solid #7cf5c4;
+  outline-offset: 2px;
+}
+
+main {
+  transition: background-color 0.2s;
+}
+.panel {
+  background: #0d0f12;
+  border: 1px solid #22272e;
+  border-radius: 12px;
+  padding: 16px;
+  align-self: start;
+}
+.transport {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.transport button {
+  background: #0d0f12;
+}
+.transport button[aria-pressed='true'] {
+  border-color: #7cf5c4;
+  color: #7cf5c4;
+}
+label.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+label.row span {
+  flex: 1;
+}
+input[type='color'] {
+  width: 44px;
+  padding: 2px;
+}
+.curve {
+  display: grid;
+  gap: 6px;
+}
+.curve__graph {
+  width: 100%;
+  max-width: 260px;
+  touch-action: none;
+  background: #090b0e;
+  border-radius: 6px;
+}
+.curve__box {
+  fill: none;
+  stroke: #2a2f36;
+}
+.curve__diag {
+  stroke: #2a2f36;
+  stroke-dasharray: 3 4;
+}
+.curve__arm {
+  stroke: #5b6470;
+}
+.curve__path {
+  fill: none;
+  stroke: #7cf5c4;
+  stroke-width: 2.5;
+}
+.curve__handle {
+  fill: #0d0f12;
+  stroke: #e8ecf0;
+  stroke-width: 2;
+  cursor: grab;
+}
+.curve__nums {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+.curve__nums input {
+  width: 100%;
+  box-sizing: border-box;
+}
